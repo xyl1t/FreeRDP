@@ -17,11 +17,7 @@ option(WITH_MANPAGES "Generate manpages." ON)
 option(WITH_PROFILER "Compile profiler." OFF)
 option(WITH_GPROF "Compile with GProf profiler." OFF)
 
-if((TARGET_ARCH MATCHES "x86|x64") AND (NOT DEFINED WITH_SSE2))
-	option(WITH_SSE2 "Enable SSE2 optimization." ON)
-else()
 	option(WITH_SSE2 "Enable SSE2 optimization." OFF)
-endif()
 
 if(TARGET_ARCH MATCHES "ARM")
 	if (NOT DEFINED WITH_NEON)
