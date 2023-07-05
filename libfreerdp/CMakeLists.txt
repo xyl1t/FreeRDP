@@ -173,18 +173,6 @@ set(CODEC_NEON_SRCS
     codec/rfx_neon.c
     codec/rfx_neon.h)
 
-if(WITH_SSE2)
-    set(CODEC_SRCS ${CODEC_SRCS} ${CODEC_SSE2_SRCS})
-
-    if(CMAKE_COMPILER_IS_GNUCC OR ${CMAKE_C_COMPILER_ID} STREQUAL "Clang")
-        set_source_files_properties(${CODEC_SSE2_SRCS} PROPERTIES COMPILE_FLAGS "-msse2" )
-    endif()
-
-    if(MSVC)
-        set_source_files_properties(${CODEC_SSE2_SRCS} PROPERTIES COMPILE_FLAGS "/arch:SSE2" )
-    endif()
-endif()
-
 if (WITH_DSP_FFMPEG)
     set(CODEC_SRCS
         ${CODEC_SRCS}
